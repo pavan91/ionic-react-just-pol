@@ -11,7 +11,7 @@ import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/typography.css';
 import * as firebase from 'firebase/app'
 import React from 'react';
-import { firebaseConfig } from './config/firebase-config';
+import { firebaseConfig } from './config/firebase';
 import { Routes } from './routes/Routes';
 import './theme/variables.css';
 
