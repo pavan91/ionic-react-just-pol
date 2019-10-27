@@ -11,7 +11,7 @@ import { ConditionalRoute } from "./ConditionalRoute";
 const Routes = () => {
     const [user, isInitializing] = useAuthState(firebase.auth());
     const [isUserLoggedIn, setIsUserLoggedIn] = useState<boolean>(false);
-    const [showLoading, setShowLoading] = useState<boolean>(true);
+    const [showLoading, setShowLoading] = useState<boolean>(!isInitializing);
 
     useEffect(() => {
         setIsUserLoggedIn(Boolean(user));
