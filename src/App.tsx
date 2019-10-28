@@ -14,6 +14,7 @@ import React from 'react';
 import { firebaseConfig } from './config/firebase';
 import { Routes } from './routes/Routes';
 import './theme/variables.css';
+import './config/i18n';
 
 firebase.initializeApp(firebaseConfig);
 

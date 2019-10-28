@@ -1,8 +1,10 @@
 import { IonLoading, IonToast, IonContent, IonPage, IonHeader, IonToolbar, IonTitle, IonRow, IonButton } from "@ionic/react";
 import firebase from "firebase";
 import React, { FormEvent, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const LoginPage = () => {
+    const { t } = useTranslation('login');
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [loginError, setLoginError] = useState<string>('');
@@ -26,7 +28,7 @@ const LoginPage = () => {
         <IonPage>
             <IonHeader>
                 <IonToolbar>
-                    <IonTitle>Login</IonTitle>
+                    <IonTitle>{t('title')}</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent className="ion-padding">
@@ -38,7 +40,7 @@ const LoginPage = () => {
                         <input type="password" name="password" value={password} onChange={e => setPassword(e.target.value)} required />
                     </IonRow>
                     <IonRow>
-                        <IonButton type="submit">Login</IonButton>
+                        <IonButton type="submit">{t('submit')}</IonButton>
                     </IonRow>
                 </form>
 
