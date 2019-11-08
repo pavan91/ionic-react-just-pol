@@ -1,0 +1,13 @@
+
+.c-login-page {
+
+    --ion-grid-padding: 2rem;
+
+    &__submit {
+        margin-top: 1.5rem;
+    }
+
+    input {
+        outline: none;
+    }
+}
