@@ -16,7 +16,7 @@ const HomePage = () => {
         <IonPage>
             <IonHeader>
                 <IonToolbar>
-                    <IonButtons slot="secondary">
+                    <IonButtons slot="end">
                         <IonButton onClick={signOut}>
                             <IonIcon slot="icon-only" icon={logOut} ariaLabel={t('log-out')} />
                         </IonButton>
