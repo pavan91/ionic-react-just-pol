@@ -13,10 +13,10 @@ import {
     IonRippleEffect,
     IonImg
 } from "@ionic/react";
-import firebase from "firebase";
 import React, { FormEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
 import "./LoginPage.scss";
+import { signIn } from "../services/authentication-service";
 
 const LoginPage = () => {
     const { t } = useTranslation("login");
@@ -29,7 +29,7 @@ const LoginPage = () => {
         e.preventDefault();
         setShowLoading(true);
         try {
-            await firebase.auth().signInWithEmailAndPassword(email, password);
+            await signIn(email, password);
         } catch (e) {
             setLoginError(e.message);
         } finally {

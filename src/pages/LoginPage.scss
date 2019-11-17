@@ -7,6 +7,10 @@
         margin-top: 1.5rem;
     }
 
+    ion-item {
+        --background-focused: none;
+    }
+
     input {
         outline: none;
     }
