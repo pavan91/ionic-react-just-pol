@@ -1,12 +1,13 @@
-import { IonLoading } from "@ionic/react";
-import { IonReactRouter } from "@ionic/react-router";
-import firebase from "firebase";
-import React, { useEffect, useState } from "react";
+import { IonLoading } from '@ionic/react';
+import { IonReactRouter } from '@ionic/react-router';
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Redirect } from "react-router";
-import { HomePage } from "../pages/HomePage";
-import { LoginPage } from "../pages/LoginPage";
-import { ConditionalRoute } from "./ConditionalRoute";
+import { Redirect } from 'react-router';
+import { HomePage } from '../pages/HomePage';
+import { LoginPage } from '../pages/LoginPage';
+import { ConditionalRoute } from './ConditionalRoute';
 
 const Routes = () => {
     const [user, isInitializing] = useAuthState(firebase.auth());
@@ -19,18 +20,27 @@ const Routes = () => {
 
     useEffect(() => {
         setShowLoading(!isInitializing);
-    }, [isInitializing])
+    }, [isInitializing]);
 
-    return isInitializing ?
-        <IonLoading isOpen={showLoading} /> :
-        (
-            <IonReactRouter>
-                <ConditionalRoute path="/login" component={LoginPage} isValid={!isUserLoggedIn} redirectTo="/home" /> 
-                <ConditionalRoute path="/home" component={HomePage} isValid={isUserLoggedIn} redirectTo="/login" />
-                <Redirect from="/" to="/home" />
-            </IonReactRouter>
-        );
+    return isInitializing ? (
+        <IonLoading isOpen={showLoading} />
+    ) : (
+        <IonReactRouter>
+            <ConditionalRoute
+                path="/login"
+                component={LoginPage}
+                isValid={!isUserLoggedIn}
+                redirectTo="/home"
+            />
+            <ConditionalRoute
+                path="/home"
+                component={HomePage}
+                isValid={isUserLoggedIn}
+                redirectTo="/login"
+            />
+            <Redirect from="/" to="/home" />
+        </IonReactRouter>
+    );
 };
 
 export { Routes };
-

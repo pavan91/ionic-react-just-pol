@@ -1,3 +1,4 @@
-import firebase from "firebase";
+import * as firebase from 'firebase/app'
+import 'firebase/database'
 
 export const getOrdersList = () => firebase.database().ref('orders');
