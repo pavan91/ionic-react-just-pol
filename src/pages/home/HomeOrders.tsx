@@ -15,7 +15,7 @@ import {
 import { trash } from 'ionicons/icons';
 
 type HomeOrdersProps = {
-    orders?: Order[];
+    orders: Order[];
 };
 
 const HomeOrders = ({ orders }: HomeOrdersProps) => {
@@ -25,9 +25,9 @@ const HomeOrders = ({ orders }: HomeOrdersProps) => {
 
     return (
         <IonList>
-            {orders?.map(o => (
-                <IonItemSliding key={o.orderDate.toString()}>
-                    <IonItem>
+            {orders.map(o => (
+                <IonItemSliding key={o.id}>
+                    <IonItem routerLink={`/order/${o.id}`}>
                         <IonAvatar slot="start">
                             <IonImg src="assets/img/sushi.svg" />
                         </IonAvatar>

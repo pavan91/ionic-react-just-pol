@@ -8,6 +8,7 @@ import { Redirect } from 'react-router';
 import { HomePage } from '../pages/HomePage';
 import { LoginPage } from '../pages/LoginPage';
 import { ConditionalRoute } from './ConditionalRoute';
+import { OrderPage } from '../pages/OrderPage';
 
 const Routes = () => {
     const [user, isInitializing] = useAuthState(firebase.auth());
@@ -27,14 +28,22 @@ const Routes = () => {
     ) : (
         <IonReactRouter>
             <ConditionalRoute
+                exact
                 path="/login"
                 component={LoginPage}
                 isValid={!isUserLoggedIn}
                 redirectTo="/home"
             />
             <ConditionalRoute
+                exact
                 path="/home"
                 component={HomePage}
+                isValid={isUserLoggedIn}
+                redirectTo="/login"
+            />
+            <ConditionalRoute
+                path="/order/:orderId"
+                component={OrderPage}
                 isValid={isUserLoggedIn}
                 redirectTo="/login"
             />

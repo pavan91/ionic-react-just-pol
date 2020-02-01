@@ -1,4 +1,4 @@
-import { IonApp } from '@ionic/react';
+import { IonApp, IonLoading } from '@ionic/react';
 import '@ionic/react/css/core.css';
 import '@ionic/react/css/display.css';
 import '@ionic/react/css/flex-utils.css';
@@ -17,7 +17,7 @@ import './config/firebase';
 import './theme/variables.scss';
 
 const App: React.FC = () => (
-    <Suspense fallback="loading">
+    <Suspense fallback={<IonLoading isOpen={true} />}>
         <IonApp>
             <Routes />
         </IonApp>
